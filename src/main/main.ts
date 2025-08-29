@@ -14,9 +14,9 @@ const createWindow = () => {
 
     if (process.env.NODE_ENV === "development") {
         mainWindow.loadURL("http://localhost:8080");
-        mainWindow.webContents.openDevTools();
+        // mainWindow.webContents.openDevTools();
     } else {
-        mainWindow.loadFile(path.join(__dirname, "../index.html"));
+        mainWindow.loadFile(path.join(__dirname, "index.html"));
     }
 
     mainWindow.on("closed", () => {
@@ -25,11 +25,12 @@ const createWindow = () => {
 };
 
 app.whenReady().then(createWindow);
+app.on("activate", () => {
+    if (!mainWindow) createWindow();
+});
 
 app.on("window-all-closed", () => {
     if (process.platform !== "darwin") app.quit();
 });
 
-app.on("activate", () => {
-    if (!mainWindow) createWindow();
-});
+

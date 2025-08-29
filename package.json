@@ -9,7 +9,25 @@
 		"type-check": "tsc --noEmit",
 		"dev": "concurrently \"webpack --config webpack.main.config.js --watch\" \"webpack serve --config webpack.renderer.config.js\" \"wait-on http://localhost:8080 && electron .\"",
 		"build": "webpack --config webpack.renderer.config.js && webpack --config webpack.main.config.js",
-		"start": "electron ."
+		"start": "electron .",
+		"dist": "electron-builder"
+	},
+	"build": {
+		"asar": true,
+		"extraMetadata": {},
+		"appId": "com.levider.jira-notifier",
+		"productName": "Jira Notifier",
+		"files": [
+			"dist/**/*",
+			"package.json"
+		],
+		"win": {
+			"target": "nsis",
+			"requestedExecutionLevel": "asInvoker"
+		},
+		"mac": {
+			"target": []
+		}
 	},
 	"keywords": [],
 	"author": "",
@@ -25,6 +43,7 @@
 		"babel-loader": "^10.0.0",
 		"concurrently": "^9.2.1",
 		"electron": "^37.4.0",
+		"electron-builder": "^26.0.12",
 		"html-webpack-plugin": "^5.6.4",
 		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.2",
@@ -38,7 +57,7 @@
 		"react-dom": "^19.1.1"
 	},
 	"volta": {
-		"node": "18.20.8"
+		"node": "20.19.4"
 	},
 	"engines": {
 		"node": ">=18.0.0",
