@@ -2,14 +2,14 @@
 	"name": "jira-notifier-electron",
 	"version": "1.0.0",
 	"description": "",
-	"main": "public/main.js",
+	"main": "dist/main.js",
 	"private": true,
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"type-check": "tsc --noEmit",
-		"dev": "webpack serve --mode development",
-		"build": "webpack --mode production",
-		"start": "cross-env NODE_ENV=development electron ."
+		"dev": "concurrently \"webpack --config webpack.main.config.js --watch\" \"webpack serve --config webpack.renderer.config.js\" \"wait-on http://localhost:8080 && electron .\"",
+		"build": "webpack --config webpack.renderer.config.js && webpack --config webpack.main.config.js",
+		"start": "electron ."
 	},
 	"keywords": [],
 	"author": "",
@@ -23,9 +23,12 @@
 		"@types/react": "^19.1.12",
 		"@types/react-dom": "^19.1.9",
 		"babel-loader": "^10.0.0",
+		"concurrently": "^9.2.1",
 		"electron": "^37.4.0",
 		"html-webpack-plugin": "^5.6.4",
+		"ts-loader": "^9.5.4",
 		"typescript": "^5.9.2",
+		"wait-on": "^8.0.4",
 		"webpack": "^5.101.3",
 		"webpack-cli": "^6.0.1",
 		"webpack-dev-server": "^5.2.2"

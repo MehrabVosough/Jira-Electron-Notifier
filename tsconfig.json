@@ -9,5 +9,5 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "./dist"
   },
-  "include": ["src", "main.ts", "preload.ts"]
+  "include": ["src", "src/main/main.ts", "src/main/preload.ts"]
 }
