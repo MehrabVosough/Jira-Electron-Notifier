@@ -1,4 +1,3 @@
-// src/renderer/api/jira.ts
 import axios from "axios";
 
 const JIRA_BASE_URL = "https://your-domain.atlassian.net";
@@ -20,7 +19,6 @@ export interface JiraIssue {
   };
 }
 
-// دریافت تسک‌های کاربر
 export const getUserTasks = async (username: string): Promise<JiraIssue[]> => {
   const jql = `assignee="${username}" ORDER BY updated DESC`;
   const url = `${JIRA_BASE_URL}/rest/api/3/search?jql=${encodeURIComponent(jql)}`;

@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [prevTasks, setPrevTasks] = useState<Task[]>([]);
 
-  const currentUser = "Alice"; 
+  const currentUser = "Alice";
 
   useEffect(() => {
     const fetchTasks = async () => {
@@ -35,7 +35,7 @@ const App: React.FC = () => {
     };
 
     fetchTasks();
-    const interval = setInterval(fetchTasks, 10000); // هر 10 ثانیه
+    const interval = setInterval(fetchTasks, 60000);
     return () => clearInterval(interval);
   }, [prevTasks]);
 
