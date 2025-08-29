@@ -1,7 +1,7 @@
 # Jira Notifier Electron App
 
 [![Electron](https://img.shields.io/badge/Electron-v26.2.1-blue?logo=electron)](https://www.electronjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-v18-green?logo=node.js)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-v20-green?logo=node.js)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/React-v18.2.0-blue?logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-v5.2.2-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
